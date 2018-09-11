@@ -1,6 +1,6 @@
 package com.seasonfif.architecturecomponentsdemo.viewmodel
 
-data class Model(
+data class Bean(
     val error: Boolean,
     val results: List<Result>
 )

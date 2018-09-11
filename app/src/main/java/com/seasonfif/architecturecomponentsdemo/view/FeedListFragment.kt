@@ -6,18 +6,18 @@ import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.seasonfif.architecturecomponentsdemo.viewmodel.DataViewModel
+import com.seasonfif.architecturecomponentsdemo.viewmodel.BeanViewModel
 import com.seasonfif.architecturecomponentsdemo.R
 import com.seasonfif.architecturecomponentsdemo.viewmodel.Result
 import kotlinx.android.synthetic.main.fragment_list.*
 
 class FeedListFragment : Fragment(), View.OnClickListener {
 
-    lateinit var viewModel: DataViewModel
+    lateinit var viewModel: BeanViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        viewModel = ViewModelProviders.of(activity!!).get(DataViewModel::class.java)
+        viewModel = ViewModelProviders.of(activity!!).get(BeanViewModel::class.java)
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {

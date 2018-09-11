@@ -3,7 +3,7 @@ package com.seasonfif.architecturecomponentsdemo.viewmodel
 import android.arch.lifecycle.MutableLiveData
 import android.arch.lifecycle.ViewModel
 
-class DataViewModel : ViewModel() {
+class BeanViewModel : ViewModel() {
 
     var selected : MutableLiveData<Result> = MutableLiveData()
 

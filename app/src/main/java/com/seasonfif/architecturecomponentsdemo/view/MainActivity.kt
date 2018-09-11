@@ -7,7 +7,7 @@ import android.util.Log
 import com.google.gson.Gson
 import com.seasonfif.architecturecomponentsdemo.R
 import com.seasonfif.architecturecomponentsdemo.lifecycle.TestLifecycle
-import com.seasonfif.architecturecomponentsdemo.viewmodel.Model
+import com.seasonfif.architecturecomponentsdemo.viewmodel.Bean
 import okhttp3.*
 import java.io.IOException
 import java.util.concurrent.TimeUnit
@@ -22,8 +22,6 @@ class MainActivity : AppCompatActivity() {
 
         loadData()
         switchFragment(null, FeedListFragment())
-//        supportFragmentManager.beginTransaction().replace(R.id.fragment_container1, FeedListFragment()).commit()
-//        supportFragmentManager.beginTransaction().replace(R.id.fragment_container2, DetailFragment()).commit()
     }
 
     fun switchFragment(from : Fragment?, to: Fragment){
@@ -34,7 +32,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     companion object {
-        lateinit var model : Model
+        lateinit var model : Bean
 
         fun loadData(){
             var builder : OkHttpClient.Builder = OkHttpClient.Builder()
@@ -54,7 +52,7 @@ class MainActivity : AppCompatActivity() {
                 override fun onResponse(call: Call?, response: Response?) {
                     if (response!!.isSuccessful){
                         var json = response.body().string()
-                        model = Gson().fromJson(json, Model::class.java)
+                        model = Gson().fromJson(json, Bean::class.java)
                         Log.e("onResponse", "result:"+ model.error + json)
                     }
                 }
