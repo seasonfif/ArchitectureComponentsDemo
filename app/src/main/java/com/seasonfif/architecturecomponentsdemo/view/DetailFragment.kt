@@ -8,7 +8,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.seasonfif.architecturecomponentsdemo.R
+import com.seasonfif.project.R
 import com.seasonfif.architecturecomponentsdemo.viewmodel.BeanViewModel
 import com.seasonfif.architecturecomponentsdemo.viewmodel.Result
 import com.seasonfif.architecturecomponentsdemo.viewmodel.TimeViewModel

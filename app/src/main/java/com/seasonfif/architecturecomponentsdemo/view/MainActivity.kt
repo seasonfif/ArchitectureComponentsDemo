@@ -5,9 +5,9 @@ import android.support.v4.app.Fragment
 import android.support.v7.app.AppCompatActivity
 import android.util.Log
 import com.google.gson.Gson
-import com.seasonfif.architecturecomponentsdemo.R
 import com.seasonfif.architecturecomponentsdemo.lifecycle.TestLifecycle
 import com.seasonfif.architecturecomponentsdemo.viewmodel.Bean
+import com.seasonfif.project.R
 import okhttp3.*
 import java.io.IOException
 import java.util.concurrent.TimeUnit
@@ -51,7 +51,7 @@ class MainActivity : AppCompatActivity() {
 
                 override fun onResponse(call: Call?, response: Response?) {
                     if (response!!.isSuccessful){
-                        var json = response.body().string()
+                        var json = response.body()?.string()
                         model = Gson().fromJson(json, Bean::class.java)
                         Log.e("onResponse", "result:"+ model.error + json)
                     }
