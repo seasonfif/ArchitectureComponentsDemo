@@ -1,4 +1,4 @@
-package com.seasonfif.project
+package com.seasonfif.project.repository
 
 import android.arch.lifecycle.MutableLiveData
 import com.seasonfif.project.data.Bean

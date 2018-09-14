@@ -4,15 +4,16 @@ import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
-import android.widget.TextView
-import com.bumptech.glide.Glide
+import android.widget.AdapterView
+import com.seasonfif.project.OnRecyclerItemClickListener
 import com.seasonfif.project.R
 import com.seasonfif.project.data.Story
 
 class StoryAdapter : RecyclerView.Adapter<Holder>(){
 
     private var mStoryList: ArrayList<Story> = ArrayList()
+
+    private lateinit var listener : OnRecyclerItemClickListener<Story>
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): Holder {
         return Holder(LayoutInflater.from(parent.context).inflate(R.layout.list_item, parent, false))
@@ -24,9 +25,16 @@ class StoryAdapter : RecyclerView.Adapter<Holder>(){
 
     override fun onBindViewHolder(holder: Holder, position: Int) {
         var story = mStoryList[position]
-        holder.tvId.text = story.id
-        holder.tvTitle.text = story.title
-        Glide.with(holder.itemView).load(story.images[0]).into(holder.img)
+        if (story != null){
+            holder.bind(story)
+            holder.itemView.setOnClickListener {
+                listener.onItemClick(story)
+            }
+        }
+    }
+
+    fun setListener(listener : OnRecyclerItemClickListener<Story>){
+        this.listener = listener
     }
 
     fun setData(storyList: List<Story>){
@@ -38,12 +46,4 @@ class StoryAdapter : RecyclerView.Adapter<Holder>(){
         mStoryList.clear()
         notifyDataSetChanged()
     }
-}
-
-class Holder(itemView : View) : RecyclerView.ViewHolder(itemView){
-
-    var img : ImageView = itemView.findViewById(R.id.img)
-    var tvId : TextView = itemView.findViewById(R.id.tv_id)
-    var tvTitle : TextView = itemView.findViewById(R.id.tv_title)
-
 }

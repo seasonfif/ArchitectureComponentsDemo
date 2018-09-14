@@ -17,7 +17,7 @@
             android:paddingLeft="15dp"
             android:paddingRight="15dp"
             app:layoutManager="android.support.v7.widget.LinearLayoutManager"
-            tools:context=".ListActivity"
+            tools:context=".ui.ListActivity"
             tools:listitem="@layout/list_item" />
     </android.support.v4.widget.SwipeRefreshLayout>
 

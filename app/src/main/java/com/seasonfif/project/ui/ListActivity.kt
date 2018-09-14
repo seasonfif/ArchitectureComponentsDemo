@@ -1,12 +1,16 @@
-package com.seasonfif.project
+package com.seasonfif.project.ui
 
 import android.arch.lifecycle.Observer
 import android.arch.lifecycle.ViewModelProviders
+import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
+import com.seasonfif.project.OnRecyclerItemClickListener
+import com.seasonfif.project.R
 import com.seasonfif.project.adapter.StoryAdapter
+import com.seasonfif.project.data.Story
 import com.seasonfif.project.viewmodels.StoryListViewModel
 import kotlinx.android.synthetic.main.activity_list.*
 
@@ -23,6 +27,12 @@ class ListActivity : AppCompatActivity(){
         viewModel = ViewModelProviders.of(this).get(StoryListViewModel::class.java)
 
         adapter = StoryAdapter()
+
+        adapter.setListener(object : OnRecyclerItemClickListener<Story> {
+            override fun onItemClick(t: Story) {
+                startActivity(Intent(this@ListActivity, PagingListActivity::class.java))
+            }
+        })
 
         recycler_view.adapter = adapter
 

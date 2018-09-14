@@ -2,7 +2,7 @@ package com.seasonfif.project.viewmodels
 
 import android.arch.lifecycle.MutableLiveData
 import android.arch.lifecycle.ViewModel
-import com.seasonfif.project.StoryRepository
+import com.seasonfif.project.repository.StoryRepository
 import com.seasonfif.project.data.Story
 
 class StoryListViewModel : ViewModel(){

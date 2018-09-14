@@ -1,4 +1,4 @@
-package com.seasonfif.project
+package com.seasonfif.project.ui
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
