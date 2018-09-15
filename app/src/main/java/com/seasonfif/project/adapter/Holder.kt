@@ -14,12 +14,6 @@ class Holder(itemView : View) : RecyclerView.ViewHolder(itemView){
     private var tvId : TextView = itemView.findViewById(R.id.tv_id)
     private var tvTitle : TextView = itemView.findViewById(R.id.tv_title)
 
-    init {
-        itemView.setOnClickListener {
-
-        }
-    }
-
     fun bind(story: Story) {
         tvId.text = story.id
         tvTitle.text = story.title
